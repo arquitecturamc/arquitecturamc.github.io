@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Planos Municipales</title>
+    <style>
+        /* Estilos básicos para dar estructura */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+        .header-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            /* Aquí iría tu imagen de planos en blanco y negro */
+            background-color: #ccc; 
+        }
+        h1 {
+            margin-top: 20px;
+            color: #494949;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .quienes-somos {
+            text-align: center;
+            background-color: #ffffff;
+        }
+        .servicios-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .grilla-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .servicio-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .servicio-img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            /* Placeholder para los íconos/imágenes pequeñas */
+            background-color: #bdc3c7;
+            display: inline-block;
+            border-radius: 4px;
+        }
+        footer {
+            background-color: #8a05be;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        .footer-content p {
+            margin: 5px 0;
+        }
+        .social-links a {
+            color: #fffbe3;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="header-image.png" alt="Planos arquitectónicos" class="header-img">
+        <h1>Gestión Integral de Planos Municipales</h1>
+    </header>
+
+    <section class="quienes-somos" id="quienes-somos">
+        <h2>¿Quiénes Somos?</h2>
+        <p>Soy un arquitecto matriculado con <strong>más de 30 años de experiencia</strong> en el rubro de la construcción y la gestión municipal. A lo largo de mi trayectoria, he acompañado a cientos de familias, empresas y profesionales a regularizar sus obras y concretar sus proyectos. Conozco de primera mano la burocracia de los municipios, por lo que mi objetivo principal es brindarte tranquilidad, agilizando cada trámite con eficiencia, transparencia y responsabilidad técnica.</p>
+    </section>
+
+    <section class="servicios-intro" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <p class="servicios-intro">Nos encargamos de toda la gestión técnica y administrativa para que tu obra cumpla con las normativas vigentes. Resolvemos tus trámites de forma rápida y profesional. Conocé todo lo que podemos hacer por tu proyecto:</p>
+        
+        <div class="grilla-servicios">
+            <div class="servicio-item">
+                <img src="intimacion.jpg" alt="Intimación Municipal" class="servicio-img">
+                <h3>INTIMACIÓN MUNICIPAL</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="permiso.jpg" alt="Permiso de Obra" class="servicio-img">
+                <h3>PERMISO DE OBRA</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="final.jpg" alt="Final de Obra" class="servicio-img">
+                <h3>FINAL DE OBRA</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="aviso.jpg" alt="Aviso de Obra" class="servicio-img">
+                <h3>AVISO DE OBRA</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="empadrona.jpg" alt="Empadronamiento" class="servicio-img">
+                <h3>EMPADRONAMIENTO</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="habilitacion.jpg" alt="Habilitación Comercial" class="servicio-img">
+                <h3>HABILITACIÓN COMERCIAL</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="factibilidad.jpg" alt="Factibilidad de Proyecto" class="servicio-img">
+                <h3>FACTIBILIDAD PROY.</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="revaluo.jpg" alt="Revalúo Inmobiliario" class="servicio-img">
+                <h3>REVALÚO INMOB.</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="informe.jpg" alt="Informe Técnico" class="servicio-img">
+                <h3>INFORME TÉCNICO</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="visado.jpg" alt="Visado Colegio" class="servicio-img">
+                <h3>VISADO COMERCIO</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="visado-banco.jpg" alt="Visado Banco" class="servicio-img">
+                <h3>VISADO BANCO</h3>
+            </div>
+            <div class="servicio-item">
+                <img src="profesionales.jpg" alt="Atención a Profesionales" class="servicio-img">
+                <h3>PROFESIONALES</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Zona de trabajo:</strong> Villa Elisa, La Plata, City Bell, Beriso, Ensenada y alrededores.</p>
+            <p><strong>Email:</strong> <a href="mailto: petacondi@gmail.com" style="color:#fffbe3;">petacondi@gmail.com</a></p>
+            <p><strong>Tel:</strong> 221-488-7464 </p>
+            <div class="social-links">
+                <p><strong>Nuestras Redes:</strong></p>
+                <a href="https://www.instagram.com/planosempadronamientoarq2025/" target="_blank">Instagram</a> | 
+                <a href="#" target="_blank">Facebook</a> 
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
