@@ -19,7 +19,7 @@
             --tape-color: rgba(228, 220, 196, 0.88);
             --tape-border: rgba(185, 175, 145, 0.5);
             --accent-green: #25d366;
-            --accent-yellow: #f8df63;
+            --accent-magenta: #e60067;
             --accent-blue: #e8f0fe;
             --shadow-hard: 4px 4px 0px #111111;
             --shadow-hard-lg: 6px 6px 0px #111111;
@@ -110,8 +110,8 @@
 
         .hero-badge {
             display: inline-block;
-            background: var(--accent-yellow);
-            color: var(--ink);
+            background: var(--accent-magenta);
+            color: #ffffff;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.15rem;
             letter-spacing: 1.5px;
@@ -345,7 +345,8 @@
         }
 
         .btn-card-accion:hover {
-            background: var(--accent-yellow);
+            background: var(--accent-magenta);
+            color: #ffffff;
             transform: translate(-2px, -2px);
             box-shadow: 4px 4px 0px var(--ink);
         }
@@ -817,7 +818,8 @@
         }
 
         .contacto-card a:hover {
-            background-color: var(--accent-yellow);
+            background-color: var(--accent-magenta);
+            color: #ffffff;
         }
 
         /* Contenedor CTA con flecha doodle */
@@ -947,6 +949,15 @@
         }
 
         @media (max-width: 768px) {
+            .hero-badge {
+                font-size: 0.95rem;
+                letter-spacing: 0.8px;
+                padding: 3px 10px;
+                max-width: 98%;
+                line-height: 1.35;
+                white-space: normal;
+                word-break: break-word;
+            }
             body {
                 padding: 8px 4px;
             }
@@ -1073,158 +1084,6 @@
                     <a href="creditos-vivienda.html" class="btn-card-accion">Ver Asistencia Créditos →</a>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- ===================================================
-             DETALLE SECCIÓN 1: PLANOS MUNICIPALES
-             =================================================== -->
-        <section class="detalle-seccion" id="planos-municipales">
-            <div class="detalle-header-box">
-                <span class="detalle-tag">[ EXPEDIENTES & REGULARIZACIONES COMUNALES ]</span>
-                <h2 class="cutout-title">Gestión Integral de Planos Municipales</h2>
-                <p class="section-intro-text">Nos encargamos de toda la tramitación técnica y administrativa ante la Municipalidad de La Plata y partidos vecinos. Resolvemos expedientes trabados, empadronamientos y multas con rapidez y firma profesional habilitada.</p>
-            </div>
-
-            <div class="grilla-servicios">
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="intimacion.jpg" alt="Intimación Municipal" class="servicio-img">
-                    <h3>INTIMACIÓN MUNICIPAL</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="permiso.jpg" alt="Permiso de Obra" class="servicio-img">
-                    <h3>PERMISO DE OBRA</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="final.jpg" alt="Final de Obra" class="servicio-img">
-                    <h3>FINAL DE OBRA</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="aviso.jpg" alt="Aviso de Obra" class="servicio-img">
-                    <h3>AVISO DE OBRA</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="empadrona.jpg" alt="Empadronamiento" class="servicio-img">
-                    <h3>EMPADRONAMIENTO</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="habilitacion.jpg" alt="Habilitación Comercial" class="servicio-img">
-                    <h3>HABILITACIÓN COMERCIAL</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="factibilidad.jpg" alt="Factibilidad de Proyecto" class="servicio-img">
-                    <h3>FACTIBILIDAD PROY.</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="revaluo.jpg" alt="Revalúo Inmobiliario" class="servicio-img">
-                    <h3>REVALÚO INMOB.</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="informe.jpg" alt="Informe Técnico" class="servicio-img">
-                    <h3>INFORME TÉCNICO</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="visado.jpg" alt="Visado Colegio" class="servicio-img">
-                    <h3>VISADO COMERCIO</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="visado-banco.jpg" alt="Visado Banco" class="servicio-img">
-                    <h3>VISADO BANCO</h3>
-                </div>
-                <div class="servicio-item" onclick="location.href='#contacto';" style="cursor: pointer;">
-                    <img src="profesionales.jpg" alt="Atención a Profesionales" class="servicio-img">
-                    <h3>PROFESIONALES</h3>
-                </div>
-            </div>
-
-            <div class="seccion-cta-box" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
-                <a href="planos-municipales.html" class="btn-card-accion" style="width: auto; padding: 14px 24px; font-size: 1.25rem; background: var(--accent-yellow);">
-                    📑 Ver Guía Completa y Variantes de Planos →
-                </a>
-                <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20consultar%20por%20planos%20municipales" target="_blank" class="btn-principal btn-inline">
-                    Consultar por Trámites Municipales
-                </a>
-            </div>
-        </section>
-
-        <!-- ===================================================
-             DETALLE SECCIÓN 2: ANTEPROYECTO, PROYECTO Y OBRA
-             =================================================== -->
-        <section class="detalle-seccion" id="proyecto-obra">
-            <div class="detalle-header-box">
-                <span class="detalle-tag">[ ARQUITECTURA DE AUTOR & CONDUCCIÓN DE OBRA ]</span>
-                <h2 class="cutout-title">Anteproyecto, Proyecto y Dirección de Obra</h2>
-                <p class="section-intro-text">Diseñamos espacios habitables pensados para las necesidades reales de cada comitente, optimizando la luz natural, la funcionalidad y los costos de los materiales en cada metro cuadrado construido.</p>
-            </div>
-
-            <div class="fases-grid">
-                <div class="fase-card">
-                    <span class="fase-num">ETAPA 01</span>
-                    <h4>Anteproyecto & Ideas</h4>
-                    <p>Relevamiento in situ del terreno, análisis de asoleamiento y código de edificación. Elaboración de esquemas funcionales, croquis preliminares y renders 3D para definir la estética y distribución antes de iniciar la obra.</p>
-                </div>
-                <div class="fase-card">
-                    <span class="fase-num">ETAPA 02</span>
-                    <h4>Proyecto Ejecutivo</h4>
-                    <p>Legajo técnico completo para construir: planos de replanteo, cortes constructivos, detalles de carpinterías, cálculo estructural, cálculo de instalaciones (agua, gas, electricidad, desagües) y pliegos de especificaciones.</p>
-                </div>
-                <div class="fase-card">
-                    <span class="fase-num">ETAPA 03</span>
-                    <h4>Dirección y Control de Obra</h4>
-                    <p>Supervisión rigurosa en el lugar de trabajo. Coordinación de gremios, verificación de fidelidad a los planos, control de calidad en materiales, seguimiento de plazos y confección de certificaciones de avance constructivo.</p>
-                </div>
-            </div>
-
-            <div class="seccion-cta-box" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
-                <a href="proyecto-obra.html" class="btn-card-accion" style="width: auto; padding: 14px 24px; font-size: 1.25rem; background: var(--accent-yellow);">
-                    🏛️ Ver Obras Realizadas (Galería Deslizable) →
-                </a>
-                <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20deseo%20cotizar%20un%20proyecto%20o%20dirección%20de%20obra" target="_blank" class="btn-principal btn-inline">
-                    Cotizar mi Proyecto u Obra
-                </a>
-            </div>
-        </section>
-
-        <!-- ===================================================
-             DETALLE SECCIÓN 3: CRÉDITOS HIPOTECARIOS Y CASA PROPIA
-             =================================================== -->
-        <section class="detalle-seccion" id="creditos-vivienda">
-            <div class="detalle-header-box">
-                <span class="detalle-tag">[ GESTIÓN DE FINANCIAMIENTO & DESEMBOLSOS ]</span>
-                <h2 class="cutout-title">Préstamos, Créditos Hipotecarios y Casa Propia</h2>
-                <p class="section-intro-text">Para acceder a un crédito hipotecario, los bancos exigen legajos técnicos estrictos, planos con aprobación municipal y certificados profesionales rubricados. Te asistimos en cada paso para que tu crédito se apruebe sin rechazos.</p>
-            </div>
-
-            <div class="fases-grid-4">
-                <div class="fase-card">
-                    <span class="fase-num">BANCOS & PROCREAR</span>
-                    <h4>Armado de Legajo Técnico</h4>
-                    <p>Confección de toda la documentación exigida por Banco Nación, Banco Provincia y entidades privadas: memoria descriptiva, planos acotados, cronograma de obra y curvas de inversión.</p>
-                </div>
-                <div class="fase-card">
-                    <span class="fase-num">OBRA NUEVA</span>
-                    <h4>Construcción de Casa Propia</h4>
-                    <p>Diseño de vivienda adaptado estrictamente a los montos y límites de superficie establecidos por la línea crediticia, garantizando el cumplimiento de plazos para no perder las condiciones del préstamo.</p>
-                </div>
-                <div class="fase-card">
-                    <span class="fase-num">AMPLIACIÓN</span>
-                    <h4>Ampliación & Renovación</h4>
-                    <p>Regularización de metros preexistentes indispensables para que el banco acepte el bien como garantía hipotecaria, sumando el plano de la nueva ampliación o remodelación a financiar.</p>
-                </div>
-                <div class="fase-card">
-                    <span class="fase-num">DESEMBOLSOS</span>
-                    <h4>Certificados de Avance de Obra</h4>
-                    <p>Inspecciones técnicas en cada etapa de la construcción y firma de los certificados oficiales requeridos por el banco para habilitar el cobro de las cuotas y desembolsos progresivos.</p>
-                </div>
-            </div>
-
-            <div class="seccion-cta-box" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
-                <a href="creditos-vivienda.html" class="btn-card-accion" style="width: auto; padding: 14px 24px; font-size: 1.25rem; background: var(--accent-yellow);">
-                    🏦 Ver Documentación Bancaria y Requisitos →
-                </a>
-                <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20asesoramiento%20para%20un%20crédito%20hipotecario" target="_blank" class="btn-principal btn-inline">
-                    Consultar por Créditos Hipotecarios
-                </a>
             </div>
         </section>
 

@@ -18,7 +18,7 @@
             --tape-color: rgba(228, 220, 196, 0.88);
             --tape-border: rgba(185, 175, 145, 0.5);
             --accent-green: #25d366;
-            --accent-yellow: #f8df63;
+            --accent-magenta: #e60067;
             --shadow-hard: 4px 4px 0px #111111;
             --shadow-hard-lg: 6px 6px 0px #111111;
             --shadow-hard-xl: 8px 8px 0px #111111;
@@ -80,7 +80,8 @@
         }
 
         .nav-back-link:hover {
-            background: var(--accent-yellow);
+            background: var(--accent-magenta);
+            color: #ffffff;
             transform: translate(-2px, -2px);
             box-shadow: 3px 3px 0px var(--ink);
         }
@@ -139,8 +140,8 @@
 
         .hero-badge {
             display: inline-block;
-            background: var(--accent-yellow);
-            color: var(--ink);
+            background: var(--accent-magenta);
+            color: #ffffff;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.15rem;
             letter-spacing: 1.5px;
@@ -410,7 +411,8 @@
         }
 
         .variante-btn:hover {
-            background: var(--accent-yellow);
+            background: var(--accent-magenta);
+            color: #ffffff;
             transform: translate(-2px, -2px);
             box-shadow: 3px 3px 0px var(--ink);
         }
@@ -495,6 +497,15 @@
         }
 
         @media (max-width: 768px) {
+            .hero-badge {
+                font-size: 0.95rem;
+                letter-spacing: 0.8px;
+                padding: 3px 10px;
+                max-width: 98%;
+                line-height: 1.35;
+                white-space: normal;
+                word-break: break-word;
+            }
             body { padding: 8px 4px; }
             section { padding: 32px 14px; }
             .top-navbar { padding: 10px 14px; font-size: 1rem; }
@@ -691,10 +702,47 @@
                     <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20soy%20profesional%20y%20necesito%20gestoría%20técnica" target="_blank" class="variante-btn">Contacto para Profesionales →</a>
                 </div>
 
-            </div>
-        </section>
+            
+                <!-- 10. Informe Técnico -->
+                <div class="variante-card tape-target">
+                    <div class="variante-header">
+                        <img src="../informe.jpg" alt="Informe Técnico de Arquitectura" class="variante-img">
+                        <h3>Informe Técnico & Peritaje Edilicio</h3>
+                    </div>
+                    <div class="variante-body">
+                        <p><strong>¿Para qué sirve?</strong> Evaluación técnica del estado de conservación, fisuras, humedades o patologías constructivas de un inmueble antes de comprar, refaccionar o litigar.</p>
+                        <p><strong>Beneficio clave:</strong> Diagnóstico pericial con firma profesional habilitada para presentar ante aseguradoras, escribanías, consorcios o juzgados.</p>
+                    </div>
+                    <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20un%20informe%20técnico%20edilicio" target="_blank" class="variante-btn">Solicitar Informe Técnico →</a>
+                </div>
 
-        <!-- LLAMADO A LA ACCIÓN / CONTACTO -->
+                <!-- 11. Visado Comercio -->
+                <div class="variante-card tape-target">
+                    <div class="variante-header">
+                        <img src="../visado.jpg" alt="Visado Colegio de Arquitectos" class="variante-img">
+                        <h3>Visados Colegiales (CAPBA Distrito 1)</h3>
+                    </div>
+                    <div class="variante-body">
+                        <p><strong>¿Para qué sirve?</strong> Tramitación del visado formal de contratos profesionales, tablas de valores referenciales y certificados de encomienda técnica.</p>
+                        <p><strong>Beneficio clave:</strong> Gestión ágil de aportes de ley (Caja CAAITBA) y sellado oficial expedito para que tu expediente no se trabe en el Colegio.</p>
+                    </div>
+                    <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20gestionar%20un%20visado%20colegial" target="_blank" class="variante-btn">Consultar por Visados →</a>
+                </div>
+
+                <!-- 12. Visado Banco -->
+                <div class="variante-card tape-target">
+                    <div class="variante-header">
+                        <img src="../visado-banco.jpg" alt="Visado Banco" class="variante-img">
+                        <h3>Visados y Carpetas Bancarias</h3>
+                    </div>
+                    <div class="variante-body">
+                        <p><strong>¿Para qué sirve?</strong> Adaptación de planos municipales y sellados colegiales a los formatos y exigencias de tasación de bancos públicos y privados.</p>
+                        <p><strong>Beneficio clave:</strong> Asegura que la documentación ingrese sin observaciones al perito tasador para acelerar la aprobación de préstamos e hipotecas.</p>
+                    </div>
+                    <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20visado%20para%20carpeta%20bancaria" target="_blank" class="variante-btn">Consultar Visado Banco →</a>
+                </div>
+</div>
+        </section><!-- LLAMADO A LA ACCIÓN / CONTACTO -->
         <section id="contacto-tramites">
             <div class="cta-final-box">
                 <h2 class="cutout-title">Iniciá tu trámite hoy mismo</h2>
