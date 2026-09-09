@@ -73,39 +73,206 @@
             user-select: none;
         }
 
-        /* Encabezado con el banner identitario estilo collage */
-        header {
-            text-align: center;
-            background-color: #ffffff;
+        /* ===================================================
+           1. HERO UNIFICADO MODULAR DE AUTOR
+           =================================================== */
+        .hero-unificado {
+            background: #ffffff;
             border-bottom: 3px solid var(--ink);
+            padding: 36px 32px 24px 32px;
             position: relative;
             z-index: 2;
         }
 
-        .header-banner-wrap {
-            width: 100%;
-            background: #111111;
-            border-bottom: 2px solid var(--ink);
-            position: relative;
-            line-height: 0;
-            text-align: center;
-        }
-
-        .header-img {
-            width: 100%;
-            max-width: 1060px;
-            height: auto;
-            max-height: 380px;
-            object-fit: contain;
-            display: block;
+        .hero-inner-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 980px;
             margin: 0 auto;
         }
 
-        .header-hero-box {
-            padding: 30px 24px 24px 24px;
+        /* Columna Foto Polaroid */
+        .hero-foto-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-polaroid {
             background: #ffffff;
+            border: 2px solid var(--ink);
+            box-shadow: 6px 6px 0px var(--ink);
+            padding: 12px 12px 14px 12px;
+            transform: rotate(-2deg);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
             position: relative;
-            text-align: center;
+            width: 100%;
+            max-width: 270px;
+        }
+
+        .hero-polaroid:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 8px 8px 0px var(--ink);
+        }
+
+        /* Washi tape decorativa sobre la foto */
+        .hero-polaroid::before {
+            content: '';
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%) rotate(1deg);
+            width: 80px;
+            height: 22px;
+            background: var(--tape-color);
+            border-left: 1px dashed var(--tape-border);
+            border-right: 1px dashed var(--tape-border);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+            z-index: 3;
+        }
+
+        .hero-foto-wrap {
+            border: 2px solid var(--ink);
+            background: #111111;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: grayscale(100%) contrast(115%);
+            transition: filter 0.3s ease;
+        }
+
+        .hero-polaroid:hover .hero-portrait-img {
+            filter: grayscale(80%) contrast(110%);
+        }
+
+        .polaroid-caption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: var(--ink);
+        }
+
+        .caption-tag {
+            background: var(--ink);
+            color: #ffffff;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .caption-text {
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Columna Información & Tipografía */
+        .hero-info-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .hero-badge-wrap {
+            margin-bottom: 10px;
+        }
+
+        .hero-brand-name {
+            margin: 4px 0 10px 0;
+            line-height: 0.92;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .brand-line-1 {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-text-1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.8rem;
+            letter-spacing: 2px;
+            color: var(--ink);
+            margin: 0;
+            line-height: 0.88;
+        }
+
+        .brand-asterisk {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            color: var(--ink);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+        }
+
+        .brand-asterisk svg {
+            width: 38px;
+            height: 38px;
+            max-width: 38px;
+            max-height: 38px;
+            fill: currentColor;
+            display: block;
+        }
+
+        .hero-brand-name:hover .brand-asterisk {
+            transform: rotate(45deg);
+            color: var(--accent-magenta);
+        }
+
+        .brand-text-2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.8rem;
+            letter-spacing: 2.5px;
+            color: var(--ink);
+            margin: 0;
+            line-height: 0.88;
+        }
+
+        .hero-subtitle-strip {
+            display: inline-block;
+            background: var(--ink);
+            color: #ffffff;
+            font-family: 'Special Elite', 'Courier Prime', monospace;
+            font-size: 0.86rem;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            margin-bottom: 14px;
+            border: 1px solid var(--ink);
+            box-shadow: 2px 2px 0px var(--accent-magenta);
+            text-transform: uppercase;
+        }
+
+        .hero-info-col .hero-desc {
+            font-size: 1.05rem;
+            margin: 0 0 20px 0;
+            max-width: 620px;
+            line-height: 1.7;
+            color: #222222;
+        }
+
+        .hero-info-col .hero-cta-wrap {
+            align-items: flex-start;
+            margin-bottom: 6px;
         }
 
         .hero-badge {
@@ -966,6 +1133,37 @@
         }
 
         @media (max-width: 860px) {
+            .hero-unificado {
+                padding: 24px 16px 18px 16px;
+            }
+            .hero-inner-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+            .hero-info-col {
+                align-items: center;
+                text-align: center;
+            }
+            .hero-info-col .hero-cta-wrap {
+                align-items: center;
+            }
+            .brand-line-1 {
+                justify-content: center;
+            }
+            .brand-text-1, .brand-text-2 {
+                font-size: 2.8rem;
+            }
+            .brand-asterisk, .brand-asterisk svg {
+                width: 30px;
+                height: 30px;
+            }
+            .hero-polaroid {
+                max-width: 230px;
+            }
+            .hero-foto-wrap {
+                height: 250px;
+            }
             .clientes-grid {
                 grid-template-columns: 1fr;
             }
@@ -978,6 +1176,22 @@
         }
 
         @media (max-width: 768px) {
+            .hero-subtitle-strip {
+                font-size: 0.74rem;
+                letter-spacing: 0.5px;
+                line-height: 1.45;
+                word-break: normal;
+                white-space: normal;
+                max-width: 95%;
+                padding: 4px 8px;
+            }
+            .brand-text-1, .brand-text-2 {
+                font-size: 2.3rem;
+            }
+            .brand-asterisk, .brand-asterisk svg {
+                width: 24px;
+                height: 24px;
+            }
             .hero-badge {
                 font-size: 0.95rem;
                 letter-spacing: 0.8px;
@@ -986,6 +1200,9 @@
                 line-height: 1.35;
                 white-space: normal;
                 word-break: break-word;
+            }
+            .watermark-m {
+                display: none;
             }
             body {
                 padding: 8px 4px;
@@ -1052,23 +1269,58 @@
         <!-- ===================================================
              1. INICIO / HERO
              =================================================== -->
-        <header id="inicio">
-            <div class="header-banner-wrap">
-                <img src="marcelo-header-banner-clean.png" alt="Marcelo Condisciani Arquitecto U.N.L.P." class="header-img">
-            </div>
-            <div class="header-hero-box">
-                <span class="hero-badge">Arquitecto · U.N.L.P. · Matrícula Profesional</span>
-                <h1 class="cutout-title">MARCELO CONDISCIANI · ARQUITECTO</h1>
-                <p class="hero-desc">Más de <strong>30 años de trayectoria</strong> proyectando arquitectura de autor, dirigiendo obras con rigor técnico y resolviendo gestiones municipales y bancarias con total agilidad en <strong>La Plata, City Bell, Villa Elisa, Gonnet, Berisso, Ensenada</strong> y la región.</p>
+        <header id="inicio" class="hero-unificado">
+            <div class="hero-inner-grid">
                 
-                <div class="hero-cta-wrap">
-                    <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20me%20comunico%20desde%20la%20web%20para%20hacerle%20una%20consulta" class="btn-principal" target="_blank">
-                        💬 Contactar por WhatsApp ahora
-                    </a>
-                    <span class="hero-cta-note">Atención directa y personalizada · Asesoramiento inicial sin cargo</span>
+                <!-- COLUMNA IZQUIERDA: RETRATO ANALÓGICO / FICHA DE AUTOR -->
+                <div class="hero-foto-col">
+                    <div class="hero-polaroid">
+                        <div class="hero-foto-wrap">
+                            <img src="marcelo-foto.png" alt="Arq. Marcelo Condisciani" class="hero-portrait-img">
+                        </div>
+                        <div class="polaroid-caption">
+                            <span class="caption-tag">ARQ</span>
+                            <span class="caption-text">MARCELO CONDISCIANI</span>
+                        </div>
+                    </div>
                 </div>
-                <img src="garabato-clean.png" alt="" class="squiggle-divider" aria-hidden="true">
+
+                <!-- COLUMNA DERECHA: IDENTIDAD TIPOGRÁFICA + PROPUESTA + CTA -->
+                <div class="hero-info-col">
+                    <div class="hero-badge-wrap">
+                        <span class="hero-badge">Arquitecto · U.N.L.P. · Matrícula Profesional</span>
+                    </div>
+
+                    <div class="hero-brand-name">
+                        <div class="brand-line-1">
+                            <h1 class="brand-text-1">MARCELO</h1>
+                            <span class="brand-asterisk" aria-hidden="true">
+                                <svg viewBox="0 0 100 100" width="38" height="38" fill="currentColor">
+                                    <path d="M50 5 C53 5 56 7 56 11 L56 34 L72 18 C75 15 80 15 83 18 C86 21 86 26 83 29 L67 45 L90 45 C94 45 97 48 97 52 C97 56 94 59 90 59 L67 59 L83 75 C86 78 86 83 83 86 C80 89 75 89 72 86 L56 70 L56 93 C56 97 53 99 50 99 C47 99 44 97 44 93 L44 70 L28 86 C25 89 20 89 17 86 C14 83 14 78 17 75 L33 59 L10 59 C6 59 3 56 3 52 C3 48 6 45 10 45 L33 45 L17 29 C14 26 14 21 17 18 C20 15 25 15 28 18 L44 34 L44 11 C44 7 47 5 50 5 Z"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="brand-line-2">
+                            <div class="brand-text-2">CONDISCIANI</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-subtitle-strip">
+                        Arquitectura de autor · Expedientes & Planos · Conducción de obra
+                    </div>
+
+                    <p class="hero-desc">Más de <strong>30 años de trayectoria</strong> proyectando arquitectura de autor, dirigiendo obras con rigor técnico y resolviendo gestiones municipales y bancarias con total agilidad en <strong>La Plata, City Bell, Villa Elisa, Gonnet, Berisso, Ensenada</strong> y la región.</p>
+                    
+                    <div class="hero-cta-wrap">
+                        <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20me%20comunico%20desde%20la%20web%20para%20hacerle%20una%20consulta" class="btn-principal" target="_blank">
+                            💬 Contactar por WhatsApp ahora
+                        </a>
+                        <span class="hero-cta-note">Atención directa y personalizada · Asesoramiento inicial sin cargo</span>
+                    </div>
+                </div>
+
             </div>
+            <img src="garabato-clean.png" alt="" class="squiggle-divider" aria-hidden="true">
         </header>
 
         <!-- ===================================================
@@ -1134,7 +1386,7 @@
                     <span class="obra-badge">INFRAESTRUCTURA EDUCATIVA</span>
                     <h4>Colegio Secundario Esseri (City Bell)</h4>
                     <div class="obra-img-wrap">
-                        <img src="obras/esseri_1.jpg" alt="Colegio Secundario Esseri en City Bell" class="obra-img" loading="lazy">
+                        <img src="obras/esseri-4.webp" alt="Colegio Secundario Esseri en City Bell" class="obra-img" loading="lazy">
                     </div>
                     <p>Dirección y conducción técnica de obra para el edificio escolar de nivel secundario en Calle 467 y 160. Una superficie cubierta de <strong>840 m²</strong> ejecutada con altos estándares de seguridad y funcionalidad institucional.</p>
                 </div>
@@ -1142,7 +1394,7 @@
                     <span class="obra-badge">BARRIOS CERRADOS DE CATEGORÍA</span>
                     <h4>Viviendas en Altos del Golf y La Cañada</h4>
                     <div class="obra-img-wrap">
-                        <img src="obras/altos_golf_1.jpg" alt="Residencia unifamiliar en Altos del Golf" class="obra-img" loading="lazy">
+                        <img src="obras/marcelo-1.jpg" alt="Residencia unifamiliar en Altos del Golf" class="obra-img" loading="lazy">
                     </div>
                     <p>Diseño y dirección técnica de residencias unifamiliares de alta gama: viviendas de <strong>212 m²</strong> y <strong>235 m²</strong> en Altos del Golf, <strong>250 m²</strong> en Altos de la Casona y <strong>242 m²</strong> en La Cañada.</p>
                 </div>
@@ -1155,10 +1407,10 @@
                     <p>Proyecto integral y dirección de obra de conjuntos de dúplex residenciales (220 m² cubiertos), maximizando la rentabilidad del lote y la calidad espacial para familias de la región.</p>
                 </div>
                 <div class="obra-card">
-                    <span class="obra-badge">ARQUITECTURA COMERCIAL & CULTURAL</span>
+                    <span class="obra-badge">ARQUITECTURA CULTURAL</span>
                     <h4>Bar Cultural Sputnik (La Plata)</h4>
                     <div class="obra-img-wrap">
-                        <img src="obras/sputnik_1.jpg" alt="Bar Cultural Sputnik en La Plata" class="obra-img" loading="lazy">
+                        <img src="obras/sputnik-1.webp" alt="Bar Cultural Sputnik en La Plata" class="obra-img" loading="lazy">
                     </div>
                     <p>Proyecto, acondicionamiento y refuncionalización arquitectónica del espacio cultural y gastronómico en Calle 48 entre 11 y 12 (148 m²), con tramitación completa de habilitación comercial.</p>
                 </div>
@@ -1166,15 +1418,15 @@
                     <span class="obra-badge">GESTIÓN COMUNAL & BANCARIA</span>
                     <h4>Más de 500 Expedientes Aprobados</h4>
                     <div class="obra-img-wrap">
-                        <img src="plano2.jpeg" alt="Plano técnico municipal y visado colegial" class="obra-img" loading="lazy">
+                        <img src="obras/aprobado-1.jpg" alt="Plano técnico municipal y visado colegial" class="obra-img" loading="lazy">
                     </div>
                     <p>Cientos de empadronamientos de metros sin declarar, planos de subdivisión, finales de obra, planos para hipotecas y visados colegiales aprobados exitosamente ante los organismos oficiales.</p>
                 </div>
                 <div class="obra-card">
-                    <span class="obra-badge">RESIDENCIAS URBANAS</span>
-                    <h4>Viviendas en City Bell, Villa Elisa y Gonnet</h4>
+                    <span class="obra-badge">ARQUITECTURA COMERCIAL</span>
+                    <h4>Local de Ropa Amina</h4>
                     <div class="obra-img-wrap">
-                        <img src="obra-citybell.png" alt="Vivienda unifamiliar en City Bell" class="obra-img" loading="lazy">
+                        <img src="obras/amina-3.jpg" alt="Vivienda unifamiliar en City Bell" class="obra-img" loading="lazy">
                     </div>
                     <p>Múltiples viviendas unifamiliares proyectadas y construidas sobre lotes urbanos abiertos, integrando áreas verdes, eficiencia lumínica y tecnologías constructivas tradicionales y mixtas.</p>
                 </div>
