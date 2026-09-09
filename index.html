@@ -581,9 +581,11 @@
         .obra-card {
             background: #ffffff;
             border: 2px solid var(--ink);
-            padding: 22px 18px;
+            padding: 20px 18px;
             box-shadow: var(--shadow-hard);
             position: relative;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -601,14 +603,40 @@
             border: 1px solid var(--ink);
             padding: 2px 8px;
             margin-bottom: 8px;
+            align-self: flex-start;
         }
 
         .obra-card h4 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.35rem;
-            margin: 2px 0 8px 0;
+            margin: 2px 0 6px 0;
             color: var(--ink);
             line-height: 1.2;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .obra-img-wrap {
+            width: 100%;
+            height: 170px;
+            overflow: hidden;
+            border: 2px solid var(--ink);
+            margin: 8px 0 12px 0;
+            position: relative;
+            background: #eae8e1;
+        }
+
+        .obra-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .obra-card:hover .obra-img {
+            transform: scale(1.05);
         }
 
         .obra-card p {
@@ -616,6 +644,7 @@
             color: #333333;
             margin: 0;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         /* Diferenciales Competitivos (Por qué contratarme) */
@@ -1067,7 +1096,7 @@
                     <span class="cliente-badge">Cliente 02 · Diseño & Construcción</span>
                     <h3>Anteproyecto, Proyecto y Dirección de Obra</h3>
                     <div class="cliente-img-wrap">
-                        <img src="render2.jpeg" alt="Proyecto y render de vivienda" class="cliente-img">
+                        <img src="FOTO1.jpg" alt="Proyecto y render de vivienda" class="cliente-img">
                     </div>
                     <p class="cliente-desc">Destinado a familias y particulares que buscan diseñar desde cero su vivienda unifamiliar, ampliación o reforma, así como inversores en dúplex y locales. Acompañamiento integral desde las primeras ideas hasta la entrega de la llave en mano.</p>
                     <a href="proyecto-obra.html" class="btn-card-accion">Ver Obras y Proyecto →</a>
@@ -1104,31 +1133,49 @@
                 <div class="obra-card">
                     <span class="obra-badge">INFRAESTRUCTURA EDUCATIVA</span>
                     <h4>Colegio Secundario Esseri (City Bell)</h4>
+                    <div class="obra-img-wrap">
+                        <img src="obras/esseri_1.jpg" alt="Colegio Secundario Esseri en City Bell" class="obra-img" loading="lazy">
+                    </div>
                     <p>Dirección y conducción técnica de obra para el edificio escolar de nivel secundario en Calle 467 y 160. Una superficie cubierta de <strong>840 m²</strong> ejecutada con altos estándares de seguridad y funcionalidad institucional.</p>
                 </div>
                 <div class="obra-card">
                     <span class="obra-badge">BARRIOS CERRADOS DE CATEGORÍA</span>
                     <h4>Viviendas en Altos del Golf y La Cañada</h4>
+                    <div class="obra-img-wrap">
+                        <img src="obras/altos_golf_1.jpg" alt="Residencia unifamiliar en Altos del Golf" class="obra-img" loading="lazy">
+                    </div>
                     <p>Diseño y dirección técnica de residencias unifamiliares de alta gama: viviendas de <strong>212 m²</strong> y <strong>235 m²</strong> en Altos del Golf, <strong>250 m²</strong> en Altos de la Casona y <strong>242 m²</strong> en La Cañada.</p>
                 </div>
                 <div class="obra-card">
                     <span class="obra-badge">DESARROLLO RESIDENCIAL</span>
                     <h4>Complejos Multifamiliares en Los Hornos</h4>
+                    <div class="obra-img-wrap">
+                        <img src="obras/duplex_1.jpg" alt="Conjunto de dúplex residenciales en Los Hornos" class="obra-img" loading="lazy">
+                    </div>
                     <p>Proyecto integral y dirección de obra de conjuntos de dúplex residenciales (220 m² cubiertos), maximizando la rentabilidad del lote y la calidad espacial para familias de la región.</p>
                 </div>
                 <div class="obra-card">
                     <span class="obra-badge">ARQUITECTURA COMERCIAL & CULTURAL</span>
                     <h4>Bar Cultural Sputnik (La Plata)</h4>
+                    <div class="obra-img-wrap">
+                        <img src="obras/sputnik_1.jpg" alt="Bar Cultural Sputnik en La Plata" class="obra-img" loading="lazy">
+                    </div>
                     <p>Proyecto, acondicionamiento y refuncionalización arquitectónica del espacio cultural y gastronómico en Calle 48 entre 11 y 12 (148 m²), con tramitación completa de habilitación comercial.</p>
                 </div>
                 <div class="obra-card">
                     <span class="obra-badge">GESTIÓN COMUNAL & BANCARIA</span>
                     <h4>Más de 500 Expedientes Aprobados</h4>
+                    <div class="obra-img-wrap">
+                        <img src="plano2.jpeg" alt="Plano técnico municipal y visado colegial" class="obra-img" loading="lazy">
+                    </div>
                     <p>Cientos de empadronamientos de metros sin declarar, planos de subdivisión, finales de obra, planos para hipotecas y visados colegiales aprobados exitosamente ante los organismos oficiales.</p>
                 </div>
                 <div class="obra-card">
                     <span class="obra-badge">RESIDENCIAS URBANAS</span>
                     <h4>Viviendas en City Bell, Villa Elisa y Gonnet</h4>
+                    <div class="obra-img-wrap">
+                        <img src="obra-citybell.png" alt="Vivienda unifamiliar en City Bell" class="obra-img" loading="lazy">
+                    </div>
                     <p>Múltiples viviendas unifamiliares proyectadas y construidas sobre lotes urbanos abiertos, integrando áreas verdes, eficiencia lumínica y tecnologías constructivas tradicionales y mixtas.</p>
                 </div>
             </div>
@@ -1159,34 +1206,11 @@
                 </div>
             </div>
 
-            <!-- Galería fotográfica con estética de lámina zine -->
-            <div class="galeria-trabajos">
-                <h3 class="obras-subtitulo">Nuestra experiencia en imágenes</h3>
-                <p style="text-align: center; margin-bottom: 20px;">Planos aprobados, dirección de obras y proyectos de autor con respaldo profesional:</p>
-                
-                <div class="grilla-fotos">
-                    <div class="foto-card">
-                        <img src="render.jpeg" alt="Render de vivienda unifamiliar moderna" class="foto-item">
-                        <p class="foto-pie">PROYECTO RESIDENCIAL · 3D</p>
-                    </div>
-                    <div class="foto-card con-clip">
-                        <img src="plano.jpeg" alt="Plano técnico de arquitectura municipal" class="foto-item">
-                        <p class="foto-pie">LEGAJO TÉCNICO APROBADO</p>
-                    </div>
-                    <div class="foto-card">
-                        <img src="render3.jpeg" alt="Diseño arquitectónico contemporáneo" class="foto-item">
-                        <p class="foto-pie">DIRECCIÓN Y CONSTRUCCIÓN</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- ===================================================
              4. CONTACTO Y ASESORAMIENTO PROFESIONAL
              =================================================== -->
-        <header class="asesorar-header" style="border-top: 3px solid var(--ink); padding: 35px 20px 5px 20px; background: #fff;">
-            <h2 id="asesorar" class="asesorar cutout-title">Asesoramiento Profesional</h2>
-        </header>
 
         <section class="contacto-seccion" id="contacto">
             <h2 class="cutout-title">¿Estás interesado en alguno de mis servicios?</h2>
