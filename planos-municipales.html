@@ -24,6 +24,11 @@
             --shadow-hard-xl: 8px 8px 0px #111111;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
         html { scroll-behavior: smooth; }
         * { box-sizing: border-box; }
 
@@ -593,8 +598,36 @@
                 word-break: break-word;
             }
             body { padding: 8px 4px; }
-            section { padding: 32px 14px; }
-            .top-navbar { padding: 10px 14px; font-size: 1rem; }
+            section { padding: 30px 14px; }
+            .top-navbar {
+                padding: 8px 10px;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .nav-back-link, .nav-contact-link {
+                font-size: 0.92rem;
+                padding: 6px 12px 4px 12px;
+                flex: 1 1 auto;
+                text-align: center;
+                justify-content: center;
+            }
+            .pasos-tecnicos, .variantes-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .nota-tecnica {
+                padding: 22px 16px;
+            }
+            .whatsapp-float {
+                bottom: 16px;
+                right: 16px;
+                width: 50px;
+                height: 50px;
+            }
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
             .btn-principal { font-size: 1.2rem; padding: 14px 18px; width: 100%; }
             .cutout-char { font-size: 1.1rem; padding: 3px 5px; min-width: 17px; }
         }
