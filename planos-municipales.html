@@ -105,59 +105,126 @@
             box-shadow: 3px 3px 0px var(--ink);
         }
 
-        header {
-            text-align: center;
-            background-color: #ffffff;
-            border-bottom: 3px solid var(--ink);
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-banner-wrap {
-            width: 100%;
-            background: #111111;
-            border-bottom: 2px solid var(--ink);
-            line-height: 0;
-            text-align: center;
-        }
-
-        .header-img {
-            width: 100%;
-            max-width: 1060px;
-            height: auto;
-            max-height: 340px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .header-hero-box {
-            padding: 30px 24px 22px 24px;
+        /* ===================================================
+           HEADER COMPACTO PARA SUBRAMAS
+           =================================================== */
+        .hero-subpage-compact {
             background: #ffffff;
+            border-bottom: 3px solid var(--ink);
+            padding: 24px 20px 18px 20px;
             position: relative;
             text-align: center;
         }
 
+        .hero-compact-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Firma de Autor compacta con isotipo giratorio */
+        .subpage-brand-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: var(--ink);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .subpage-brand-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.65rem;
+            letter-spacing: 1.5px;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .subpage-brand-bar .brand-asterisk {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            color: var(--ink);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+        }
+
+        .subpage-brand-bar .brand-asterisk svg {
+            width: 20px;
+            height: 20px;
+            max-width: 20px;
+            max-height: 20px;
+            fill: currentColor;
+            display: block;
+        }
+
+        .subpage-brand-bar:hover .brand-asterisk {
+            transform: rotate(45deg);
+            color: var(--accent-magenta);
+        }
+
+        .subpage-brand-tag {
+            font-family: 'Special Elite', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #555555;
+            text-transform: uppercase;
+            margin-left: 2px;
+        }
+
+        /* Badge específico de subrama */
         .hero-badge {
             display: inline-block;
             background: var(--accent-magenta);
             color: #ffffff;
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             letter-spacing: 1.5px;
-            padding: 4px 14px 2px 14px;
+            padding: 3px 14px 2px 14px;
             border: 2px solid var(--ink);
             box-shadow: 2px 2px 0px var(--ink);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        .hero-desc {
-            font-size: 1.12rem;
-            max-width: 860px;
-            margin: 10px auto 20px auto;
-            color: #222222;
-            line-height: 1.7;
+        /* Título de la subrama en Bebas Neue */
+        .hero-compact-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.2rem;
+            letter-spacing: 1.8px;
+            color: var(--ink);
+            margin: 0 0 10px 0;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        /* Cinta de subtítulo */
+        .hero-subtitle-strip {
+            display: inline-block;
+            background: var(--ink);
+            color: #ffffff;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.84rem;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            margin-bottom: 14px;
+            border: 1px solid var(--ink);
+            box-shadow: 2px 2px 0px var(--accent-magenta);
+            text-transform: uppercase;
+            max-width: 95%;
+        }
+
+        .squiggle-divider {
+            display: block;
+            margin: 6px auto 0 auto;
+            max-width: 140px;
+            height: auto;
+            opacity: 0.85;
         }
 
         .cutout-title {
@@ -497,6 +564,25 @@
         }
 
         @media (max-width: 768px) {
+            .hero-subpage-compact {
+                padding: 18px 12px 14px 12px;
+            }
+            .subpage-brand-name {
+                font-size: 1.35rem;
+            }
+            .subpage-brand-tag {
+                font-size: 0.72rem;
+            }
+            .hero-compact-title {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            .hero-subtitle-strip {
+                font-size: 0.72rem;
+                letter-spacing: 0.5px;
+                line-height: 1.4;
+                padding: 3px 8px;
+            }
             .hero-badge {
                 font-size: 0.95rem;
                 letter-spacing: 0.8px;
@@ -524,16 +610,33 @@
             <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20consultar%20por%20planos%20municipales" target="_blank" class="nav-contact-link">💬 Consultar por WhatsApp</a>
         </nav>
 
-        <header>
-            <div class="header-banner-wrap">
-                <img src="marcelo-header-banner-clean.png" alt="Gestión de Planos Municipales - Marcelo Condisciani Arquitecto" class="header-img">
+        <header class="hero-subpage-compact">
+            <div class="hero-compact-inner">
+                
+                <!-- Identidad de Autor vinculada al home -->
+                <a href="index.html" class="subpage-brand-bar" title="Volver al Inicio">
+                    <span class="subpage-brand-name">MARCELO</span>
+                    <span class="brand-asterisk" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" width="20" height="20" fill="currentColor">
+                            <path d="M50 5 C53 5 56 7 56 11 L56 34 L72 18 C75 15 80 15 83 18 C86 21 86 26 83 29 L67 45 L90 45 C94 45 97 48 97 52 C97 56 94 59 90 59 L67 59 L83 75 C86 78 86 83 83 86 C80 89 75 89 72 86 L56 70 L56 93 C56 97 53 99 50 99 C47 99 44 97 44 93 L44 70 L28 86 C25 89 20 89 17 86 C14 83 14 78 17 75 L33 59 L10 59 C6 59 3 56 3 52 C3 48 6 45 10 45 L33 45 L17 29 C14 26 14 21 17 18 C20 15 25 15 28 18 L44 34 L44 11 C44 7 47 5 50 5 Z"/>
+                        </svg>
+                    </span>
+                    <span class="subpage-brand-name">CONDISCIANI</span>
+                    <span class="subpage-brand-tag">· ARQUITECTO U.N.L.P.</span>
+                </a>
+
+                <div class="hero-badge-wrap">
+                    <span class="hero-badge">Dirección de Obras Particulares · Catastro · CAPBA</span>
+                </div>
+
+                <h1 class="hero-compact-title">Gestión Integral de Planos Municipales</h1>
+
+                <div class="hero-subtitle-strip">
+                    Relevamientos · Planos de Obra & Subsistencia · Finales de Obra
+                </div>
+
             </div>
-            <div class="header-hero-box">
-                <span class="hero-badge">Dirección de Obras Particulares · Catastro · CAPBA</span>
-                <h1 class="cutout-title">Gestión Integral de Planos Municipales</h1>
-                <p class="hero-desc">Asesoramiento técnico profesional, relevamiento in situ, confección de legajos y tramitación directa ante la <strong>Municipalidad de La Plata, Berisso, Ensenada</strong> y partidos vecinos. Regularizá tu obra, evitá multas y protegé el valor de tu propiedad.</p>
-                <img src="garabato-clean.png" alt="" class="squiggle-divider" aria-hidden="true">
-            </div>
+            <img src="garabato-clean.png" alt="" class="squiggle-divider" aria-hidden="true">
         </header>
 
         <!-- SECCIÓN 1: EN QUÉ CONSISTE EL TRABAJO -->
