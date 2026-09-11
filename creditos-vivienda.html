@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préstamos, Créditos Hipotecarios y Casa Propia · Marcelo Condisciani Arquitecto U.N.L.P.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #111111;
+            --paper: #ffffff;
+            --paper-bg: #f4f3ee;
+            --paper-card: #fefefe;
+            --paper-tint: #faf8f1;
+            --paper-tint-2: #f4f0e6;
+            --tape-color: rgba(228, 220, 196, 0.88);
+            --tape-border: rgba(185, 175, 145, 0.5);
+            --accent-green: #25d366;
+            --accent-magenta: #e60067;
+            --shadow-hard: 4px 4px 0px #111111;
+            --shadow-hard-lg: 6px 6px 0px #111111;
+            --shadow-hard-xl: 8px 8px 0px #111111;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+            background-color: var(--paper-bg);
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+            background-size: 26px 26px;
+            color: #1a1a1a;
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px 10px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .sheet-container {
+            max-width: 1060px;
+            margin: 0 auto;
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.22), 0 25px 50px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+            background: var(--paper-tint-2);
+            border-bottom: 2px solid var(--ink);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--ink);
+            text-decoration: none;
+            background: #ffffff;
+            border: 2px solid var(--ink);
+            padding: 5px 14px 3px 14px;
+            box-shadow: 2px 2px 0px var(--ink);
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .nav-back-link:hover {
+            background: var(--accent-magenta);
+            color: #ffffff;
+            transform: translate(-2px, -2px);
+            box-shadow: 3px 3px 0px var(--ink);
+        }
+
+        .nav-contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #000;
+            text-decoration: none;
+            background: var(--accent-green);
+            border: 2px solid var(--ink);
+            padding: 5px 16px 3px 16px;
+            box-shadow: 2px 2px 0px var(--ink);
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .nav-contact-link:hover {
+            background: #20ba5a;
+            transform: translate(-2px, -2px);
+            box-shadow: 3px 3px 0px var(--ink);
+        }
+
+        /* ===================================================
+           HEADER COMPACTO PARA SUBRAMAS
+           =================================================== */
+        .hero-subpage-compact {
+            background: #ffffff;
+            border-bottom: 3px solid var(--ink);
+            padding: 24px 20px 18px 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-compact-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Firma de Autor compacta con isotipo giratorio */
+        .subpage-brand-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: var(--ink);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .subpage-brand-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.65rem;
+            letter-spacing: 1.5px;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .subpage-brand-bar .brand-asterisk {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            color: var(--ink);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+        }
+
+        .subpage-brand-bar .brand-asterisk svg {
+            width: 20px;
+            height: 20px;
+            max-width: 20px;
+            max-height: 20px;
+            fill: currentColor;
+            display: block;
+        }
+
+        .subpage-brand-bar:hover .brand-asterisk {
+            transform: rotate(45deg);
+            color: var(--accent-magenta);
+        }
+
+        .subpage-brand-tag {
+            font-family: 'Special Elite', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #555555;
+            text-transform: uppercase;
+            margin-left: 2px;
+        }
+
+        /* Badge específico de subrama */
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-magenta);
+            color: #ffffff;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.05rem;
+            letter-spacing: 1.5px;
+            padding: 3px 14px 2px 14px;
+            border: 2px solid var(--ink);
+            box-shadow: 2px 2px 0px var(--ink);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Título de la subrama en Bebas Neue */
+        .hero-compact-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.2rem;
+            letter-spacing: 1.8px;
+            color: var(--ink);
+            margin: 0 0 10px 0;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        /* Cinta de subtítulo */
+        .hero-subtitle-strip {
+            display: inline-block;
+            background: var(--ink);
+            color: #ffffff;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.84rem;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            margin-bottom: 14px;
+            border: 1px solid var(--ink);
+            box-shadow: 2px 2px 0px var(--accent-magenta);
+            text-transform: uppercase;
+            max-width: 95%;
+        }
+
+        .squiggle-divider {
+            display: block;
+            margin: 6px auto 0 auto;
+            max-width: 140px;
+            height: auto;
+            opacity: 0.85;
+        }
+
+        .cutout-title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 6px 10px;
+            margin: 15px auto;
+            font-family: 'Bebas Neue', 'Special Elite', sans-serif;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .cutout-word {
+            display: inline-flex;
+            gap: 3px;
+            white-space: nowrap;
+        }
+
+        .cutout-char {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ink);
+            color: #ffffff;
+            font-family: 'Bebas Neue', 'Special Elite', 'Arial Black', sans-serif;
+            font-size: 1.45rem;
+            line-height: 1;
+            padding: 5px 8px 3px 8px;
+            min-width: 22px;
+            border-radius: 1px;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+            transform: rotate(var(--r, 0deg));
+            transition: transform 0.2s ease, background 0.2s ease;
+            user-select: none;
+            text-transform: uppercase;
+        }
+
+        .cutout-char:hover {
+            transform: rotate(0deg) scale(1.15);
+            background: #000000;
+        }
+
+        .squiggle-divider {
+            display: block;
+            width: 170px;
+            max-width: 60%;
+            height: auto;
+            margin: 8px auto 10px auto;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 48px 32px;
+            max-width: 980px;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        section:not(:last-child) {
+            border-bottom: 2px dashed rgba(0, 0, 0, 0.18);
+        }
+
+        .section-intro-text {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 30px auto;
+            font-size: 1.08rem;
+            color: #2b2b2b;
+        }
+
+        /* Tarjetas de Documentación Técnica */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .doc-card {
+            background: var(--paper-tint);
+            border: 2px solid var(--ink);
+            padding: 24px 20px;
+            box-shadow: var(--shadow-hard);
+            position: relative;
+        }
+
+        .doc-num {
+            display: inline-block;
+            background: var(--ink);
+            color: #fff;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            padding: 2px 10px;
+            margin-bottom: 10px;
+        }
+
+        .doc-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            color: var(--ink);
+            margin: 0 0 10px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-card p {
+            font-size: 0.95rem;
+            color: #333;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Sección Los "Por Qué" */
+        .porques-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .porque-card {
+            background: #ffffff;
+            border: 2px solid var(--ink);
+            padding: 26px 22px;
+            box-shadow: var(--shadow-hard);
+            position: relative;
+        }
+
+        .porque-card::before {
+            content: '';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%) rotate(var(--tape-rot, -1deg));
+            width: 75px;
+            height: 18px;
+            background: var(--tape-color);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+            border-left: 1px dashed var(--tape-border);
+            border-right: 1px dashed var(--tape-border);
+            z-index: 2;
+        }
+
+        .porque-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .porque-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            color: var(--ink);
+            margin: 0 0 10px 0;
+            letter-spacing: 0.5px;
+            line-height: 1.25;
+        }
+
+        .porque-card p {
+            font-size: 0.96rem;
+            color: #333;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Cómo Trabajamos */
+        .metodo-wrap {
+            background: var(--paper-tint-2);
+            border: 2px solid var(--ink);
+            padding: 28px 24px;
+            box-shadow: var(--shadow-hard);
+            margin-top: 30px;
+        }
+
+        .metodo-pasos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metodo-item {
+            background: #ffffff;
+            border: 2px solid var(--ink);
+            padding: 18px 16px;
+            box-shadow: 2px 2px 0px var(--ink);
+        }
+
+        .metodo-paso-badge {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            background: var(--accent-magenta);
+            color: #ffffff;
+            border: 1px solid var(--ink);
+            padding: 2px 8px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .metodo-item h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            margin: 0 0 6px 0;
+            color: var(--ink);
+        }
+
+        .metodo-item p {
+            font-size: 0.92rem;
+            color: #444;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Líneas de Bancos */
+        .bancos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .banco-item {
+            background: var(--paper-card);
+            border: 2px solid var(--ink);
+            padding: 22px 18px;
+            box-shadow: var(--shadow-hard);
+            text-align: center;
+        }
+
+        .banco-item h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            margin: 0 0 8px 0;
+            color: var(--ink);
+        }
+
+        .banco-item p {
+            font-size: 0.94rem;
+            color: #444;
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        .cta-final-box {
+            background: var(--paper-tint);
+            border: 3px solid var(--ink);
+            box-shadow: var(--shadow-hard-lg);
+            padding: 35px 25px;
+            text-align: center;
+            margin: 40px auto 20px auto;
+            position: relative;
+        }
+
+        .btn-principal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-green);
+            color: #000000;
+            padding: 16px 36px;
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.45rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 3px solid var(--ink);
+            box-shadow: var(--shadow-hard-lg);
+            border-radius: 2px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn-principal:hover {
+            background-color: #20ba5a;
+            transform: translate(-3px, -3px);
+            box-shadow: var(--shadow-hard-xl);
+        }
+
+        footer {
+            background-color: var(--ink);
+            color: #eae8e1;
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 4px solid #000000;
+            font-size: 1rem;
+        }
+
+        footer a { color: #ffffff; text-decoration: underline; }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--accent-green);
+            color: #000000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--ink);
+            box-shadow: 4px 4px 0px var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 9999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translate(-3px, -3px) scale(1.06);
+            box-shadow: 6px 6px 0px var(--ink);
+            background-color: #20ba5a;
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: #000000;
+        }
+
+        @media (max-width: 860px) {
+            .porques-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-subpage-compact {
+                padding: 18px 12px 14px 12px;
+            }
+            .subpage-brand-name {
+                font-size: 1.35rem;
+            }
+            .subpage-brand-tag {
+                font-size: 0.72rem;
+            }
+            .hero-compact-title {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            .hero-subtitle-strip {
+                font-size: 0.72rem;
+                letter-spacing: 0.5px;
+                line-height: 1.4;
+                padding: 3px 8px;
+            }
+            .hero-badge {
+                font-size: 0.95rem;
+                letter-spacing: 0.8px;
+                padding: 3px 10px;
+                max-width: 98%;
+                line-height: 1.35;
+                white-space: normal;
+                word-break: break-word;
+            }
+            body { padding: 8px 4px; }
+            section { padding: 30px 14px; }
+            .top-navbar {
+                padding: 8px 10px;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .nav-back-link, .nav-contact-link {
+                font-size: 0.92rem;
+                padding: 6px 12px 4px 12px;
+                flex: 1 1 auto;
+                text-align: center;
+                justify-content: center;
+            }
+            .doc-grid, .metodo-pasos, .bancos-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .metodo-wrap {
+                padding: 20px 14px;
+            }
+            .whatsapp-float {
+                bottom: 16px;
+                right: 16px;
+                width: 50px;
+                height: 50px;
+            }
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
+            .btn-principal { font-size: 1.2rem; padding: 14px 18px; width: 100%; }
+            .cutout-char { font-size: 1.1rem; padding: 3px 5px; min-width: 17px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sheet-container">
+
+        <nav class="top-navbar">
+            <a href="index.html" class="nav-back-link">← Volver al Inicio</a>
+            <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20asesoramiento%20técnico%20para%20un%20crédito%20hipotecario" target="_blank" class="nav-contact-link">💬 Consultar por WhatsApp</a>
+        </nav>
+
+        <header class="hero-subpage-compact">
+            <div class="hero-compact-inner">
+                
+                <!-- Identidad de Autor vinculada al home -->
+                <a href="index.html" class="subpage-brand-bar" title="Volver al Inicio">
+                    <span class="subpage-brand-name">MARCELO</span>
+                    <span class="brand-asterisk" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" width="20" height="20" fill="currentColor">
+                            <path d="M50 5 C53 5 56 7 56 11 L56 34 L72 18 C75 15 80 15 83 18 C86 21 86 26 83 29 L67 45 L90 45 C94 45 97 48 97 52 C97 56 94 59 90 59 L67 59 L83 75 C86 78 86 83 83 86 C80 89 75 89 72 86 L56 70 L56 93 C56 97 53 99 50 99 C47 99 44 97 44 93 L44 70 L28 86 C25 89 20 89 17 86 C14 83 14 78 17 75 L33 59 L10 59 C6 59 3 56 3 52 C3 48 6 45 10 45 L33 45 L17 29 C14 26 14 21 17 18 C20 15 25 15 28 18 L44 34 L44 11 C44 7 47 5 50 5 Z"/>
+                        </svg>
+                    </span>
+                    <span class="subpage-brand-name">CONDISCIANI</span>
+                    <span class="subpage-brand-tag">· ARQUITECTO U.N.L.P.</span>
+                </a>
+
+                <div class="hero-badge-wrap">
+                    <span class="hero-badge">Banco Nación · Banco Provincia · Líneas UVA · Procrear</span>
+                </div>
+
+                <h1 class="hero-compact-title">Préstamos, Créditos Hipotecarios y Casa Propia</h1>
+
+                <div class="hero-subtitle-strip">
+                    Legajos Bancarios · Cómputo & Presupuesto · Avance de Obra
+                </div>
+
+            </div>
+            <img src="garabato-clean.png" alt="" class="squiggle-divider" aria-hidden="true">
+        </header>
+
+        <!-- SECCIÓN 1: DOCUMENTACIÓN TÉCNICA QUE EXIGE EL BANCO -->
+        <section id="documentacion-bancaria">
+            <h2 class="cutout-title">¿Qué documentación exige el banco?</h2>
+            <p class="section-intro-text">Para evaluar la viabilidad de un crédito hipotecario para construcción o ampliación, las entidades bancarias exigen una carpeta técnica estandarizada y rubricada por un arquitecto matriculado:</p>
+
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <span class="doc-num">REQUISITO 01</span>
+                    <h3>Plano Municipal Aprobado o Visado</h3>
+                    <p>Plano de arquitectura a escala reglamentaria con plantas, cortes, fachadas, cuadro de superficies y balance de ocupación de suelo (FOS/FOT), debidamente visado por el Colegio de Arquitectos (CAPBA) e ingresado ante la Comuna.</p>
+                </div>
+
+                <div class="doc-card">
+                    <span class="doc-num">REQUISITO 02</span>
+                    <h3>Cómputo Métrico y Presupuesto Oficial</h3>
+                    <p>Planilla oficial de la entidad financiera detallando el presupuesto desglosado por rubros constructivos (movimiento de suelo, estructura, mampostería, cubiertas, instalaciones, terminaciones) con indicación de incidencias porcentuales.</p>
+                </div>
+
+                <div class="doc-card">
+                    <span class="doc-num">REQUISITO 03</span>
+                    <h3>Cronograma y Curva de Inversión</h3>
+                    <p>Diagrama físico-financiero de avance mensual de obra (Diagrama de Gantt). Sincroniza el tiempo estimado de ejecución con los porcentajes de avance requeridos para el cobro de cada etapa crediticia.</p>
+                </div>
+
+                <div class="doc-card">
+                    <span class="doc-num">REQUISITO 04</span>
+                    <h3>Memoria Técnica Descriptiva</h3>
+                    <p>Documento técnico que especifica las calidades de los materiales a utilizar, métodos constructivos, tipo de aislaciones hidrófugas y térmicas, carpinterías e instalaciones para garantizar la tasación del bien.</p>
+                </div>
+
+                <div class="doc-card">
+                    <span class="doc-num">REQUISITO 05</span>
+                    <h3>Certificados de Dominio y Catastro</h3>
+                    <p>Plancheta catastral actualizada, plano de mensura del lote e informe de dominio expedido por el Registro de la Propiedad Inmueble que acredite la titularidad libre de gravámenes e inhibiciones.</p>
+                </div>
+
+                <div class="doc-card">
+                    <span class="doc-num">REQUISITO 06</span>
+                    <h3>Contrato Profesional y Timbrados</h3>
+                    <p>Contrato de encomienda profesional por Proyecto y Dirección de Obra suscripto ante el Colegio de Arquitectos Distrito 1, con el correspondiente timbrado de ley y aportes previsionales al día.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: LOS "POR QUÉ" -->
+        <section id="los-por-que">
+            <h2 class="cutout-title">Los "Por Qué": Evitá trabas con el tasador</h2>
+            <p class="section-intro-text">Los peritos tasadores de los bancos operan bajo normativas crediticias inflexibles. Conocer estos motivos te ahorra meses de retrasos y asegura que los desembolsos se cobren a tiempo:</p>
+
+            <div class="porques-grid">
+                <div class="porque-card tape-target">
+                    <span class="porque-icon">🔍</span>
+                    <h3>¿Por qué el tasador frena desembolsos si hay desvíos?</h3>
+                    <p>El banco no libera fondos por adelantado; envía a su tasador a constatar in situ que el avance físico ejecutado coincida exactamente con el porcentaje declarado en el cronograma. Si se declaró un 30% y la obra está en un 22%, el pago queda retenido. Por eso nuestra supervisión técnica garantiza avances precisos y certificaciones intachables.</p>
+                </div>
+
+                <div class="porque-card tape-target">
+                    <span class="porque-icon">⚖️</span>
+                    <h3>¿Por qué una obra clandestina previa frena el crédito de ampliación?</h3>
+                    <p>Para que un banco otorgue un crédito de ampliación o refacción, la vivienda preexistente debe estar 100% regularizada y empadronada ante la Municipalidad. Si hay metros construidos sin declarar, el perito tasa la propiedad con observación y rechaza la hipoteca hasta que se regularice.</p>
+                </div>
+
+                <div class="porque-card tape-target">
+                    <span class="porque-icon">📐</span>
+                    <h3>¿Por qué es crítico el balance entre metros y monto?</h3>
+                    <p>Diseñar una casa con más metros de los que el crédito puede financiar es el error más común y conduce a obras paralizadas a mitad de camino. Diseñamos ajustándonos estrictamente a los montos y límites de superficie de cada banco para garantizar que la vivienda sea 100% habitable al finalizar el préstamo.</p>
+                </div>
+
+                <div class="porque-card tape-target">
+                    <span class="porque-icon">⏱️</span>
+                    <h3>¿Por qué los plazos de vencimiento son inflexibles?</h3>
+                    <p>Las líneas hipotecarias otorgan plazos estrictos (usualmente entre 9 y 18 meses) para la finalización de la vivienda. Una adecuada dirección de obra y coordinación de gremios evita demoras que puedan ocasionar penalidades financieras o la pérdida de las condiciones del crédito.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CÓMO TRABAJAMOS -->
+        <section id="como-trabajamos">
+            <h2 class="cutout-title">Cómo Trabajamos: Paso a Paso</h2>
+            <p class="section-intro-text">Un acompañamiento profesional continuo desde que solicitás las bases en el banco hasta el brindis de inauguración:</p>
+
+            <div class="metodo-wrap">
+                <div class="metodo-pasos">
+                    <div class="metodo-item">
+                        <span class="metodo-paso-badge">PASO 1</span>
+                        <h4>Diagnóstico del Lote</h4>
+                        <p>Evaluamos el título de propiedad, dimensiones, zonificación municipal y compatibilidad con las exigencias del préstamo.</p>
+                    </div>
+
+                    <div class="metodo-item">
+                        <span class="metodo-paso-badge">PASO 2</span>
+                        <h4>Diseño a Medida</h4>
+                        <p>Proyectamos la vivienda adaptada a las necesidades de tu familia y a los límites presupuestarios exactos del crédito.</p>
+                    </div>
+
+                    <div class="metodo-item">
+                        <span class="metodo-paso-badge">PASO 3</span>
+                        <h4>Armado de Carpeta</h4>
+                        <p>Confeccionamos en tiempo récord los planos visados, planillas oficiales, memorias descriptivas y curvas de inversión.</p>
+                    </div>
+
+                    <div class="metodo-item">
+                        <span class="metodo-paso-badge">PASO 4</span>
+                        <h4>Certificados de Avance</h4>
+                        <p>Inspeccionamos cada etapa constructiva y rubricamos los certificados oficiales para la liberación de los desembolsos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: LÍNEAS QUE ATENDEMOS -->
+        <section id="lineas-bancos">
+            <h2 class="cutout-title">Líneas Crediticias que Atendemos</h2>
+            <p class="section-intro-text">Experiencia en la presentación técnica de carpetas para los principales programas y entidades bancarias de la región:</p>
+
+            <div class="bancos-grid">
+                <div class="banco-item">
+                    <h4>Créditos Hipotecarios UVA</h4>
+                    <p>Banco Nación, Banco Provincia, Santander, Galicia, BBVA, Macro y Ciudad. Carpetas conforme a las normativas de financiamiento hipotecario vigentes.</p>
+                </div>
+
+                <div class="banco-item">
+                    <h4>Programas Casa Propia / Procrear</h4>
+                    <p>Líneas de construcción sobre lote propio familiar, ampliaciones y terminaciones bajo programas de fomento estatal y provincial.</p>
+                </div>
+
+                <div class="banco-item">
+                    <h4>Créditos para Ampliación y Reforma</h4>
+                    <p>Regularización de metros preexistentes indispensables y diseño del plano del nuevo sector a construir para calificar a la garantía hipotecaria.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LLAMADO A LA ACCIÓN / CONTACTO -->
+        <section id="contacto-creditos">
+            <div class="cta-final-box">
+                <h2 class="cutout-title">Asesorate antes de ingresar tu carpeta</h2>
+                <p style="font-size: 1.1rem; max-width: 700px; margin: 15px auto 25px auto;">Una carpeta técnica bien armada desde el primer día te ahorra meses de objeciones bancarias. Consultanos sin cargo para evaluar tu crédito.</p>
+                <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20asesoramiento%20técnico%20para%20un%20crédito%20hipotecario" class="btn-principal" target="_blank">
+                    💬 Consultar por WhatsApp ahora
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Estudio de Arquitectura Marcelo Condisciani · Matrícula CAPBA</strong></p>
+            <p>Zona de trabajo: La Plata · City Bell · Villa Elisa · Gonnet · Berisso · Ensenada · Los Hornos</p>
+            <p>Teléfono: <a href="https://wa.me/5492214887464">221-488-7464</a> | Email: <a href="mailto:petacondi@gmail.com">petacondi@gmail.com</a></p>
+            <p style="margin-top: 15px;"><a href="index.html">← Regresar a la Página Principal</a></p>
+        </footer>
+
+    </div>
+
+    <a href="https://wa.me/5492214887464?text=Hola%20Arq.%20Marcelo,%20necesito%20asesoramiento%20técnico%20para%20un%20crédito%20hipotecario" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.tape-target').forEach(function(item, idx) {
+                var rot = ((idx % 5 - 2) * 0.9).toFixed(1);
+                item.style.setProperty('--tape-rot', rot + 'deg');
+            });
+
+            document.querySelectorAll('.cutout-title').forEach(function(title) {
+                var text = title.getAttribute('data-original-text') || title.textContent.trim();
+                if (!title.getAttribute('data-original-text')) {
+                    title.setAttribute('data-original-text', text);
+                    title.setAttribute('aria-label', text);
+                }
+                var words = text.split(/\s+/);
+                var html = words.map(function(word) {
+                    var chars = Array.from(word).map(function(ch) {
+                        var rot = ((Math.random() * 4) - 2).toFixed(1);
+                        return '<span class="cutout-char" style="--r:' + rot + 'deg" aria-hidden="true">' + ch + '</span>';
+                    }).join('');
+                    return '<span class="cutout-word">' + chars + '</span>';
+                }).join(' ');
+                title.innerHTML = html;
+            });
+        });
+    </script>
+</body>
+</html>
